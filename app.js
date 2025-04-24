@@ -35,16 +35,14 @@ app.use('/api/admin', adminRouter)
 app.use('/api/checkouts', checkoutRouter)
 
 
-app.all('*', (req, res, next) => {
-    return next(new AppError(`Can't find ${req.originalUrl}`, 400))
-})
-app.use(errorHandler)
-
-// initCrons();
-
 app.get("/", (req, res) => {
     res.send("<h1>server is live</h1>")
 })
 
+app.all('*', (req, res, next) => {
+    return next(new AppError(`Can't find ${req.originalUrl}`, 400))
+})
+
+app.use(errorHandler)
 
 module.exports = app
