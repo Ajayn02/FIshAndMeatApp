@@ -1,7 +1,6 @@
 const express = require('express')
 const vendorController = require('../controllers/vendorController')
 const jwtMiddle = require('../middlewares/jwtMiddleware')
-const multerMiddle = require('../middlewares/multerMiddleware')
 
 const router = express.Router()
 

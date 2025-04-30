@@ -7,6 +7,9 @@ const path = require('path')
 
 exports.addProduct = catchAsync(async (req, res, next) => {
     const { title, description, price, stock, offerPrice, availability, category } = req.body
+    if(!title || !description || !price || !stock || !offerPrice || !availability || !category){
+        return next(new AppError("title, description, price, stock, offerPrice, availability and category are required"))
+    }
     const parsedAvailability = availability
         ? availability.split(',').map(item => Number(item.trim()))
         : [];
