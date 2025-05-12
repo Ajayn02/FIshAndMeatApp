@@ -66,5 +66,5 @@ exports.deleteVendorPromocode = catchAsync(async (req, res, next) => {
     const promocode = await prisma.promocodes.delete({
         where: { id }
     })
-    sendResponse(res, 200, true, 'promocode updated', promocode)
+    sendResponse(res, 200, true, 'promocode deleted', promocode)
 })

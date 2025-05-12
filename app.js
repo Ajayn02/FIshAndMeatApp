@@ -3,8 +3,8 @@ const express = require('express')
 const cors = require('cors')
 const errorHandler = require('./middlewares/errorHandler')
 const AppError = require('./utils/AppError')
-const initCrons=require('./utils/cron/cron')
-const morganLogger=require('./middlewares/morganLogger')
+const initCrons = require('./utils/cron/cron')
+const morganLogger = require('./middlewares/morganLogger')
 
 const productRoutes = require('./routes/productRoutes')
 const authRoutes = require('./routes/authRoutes')
@@ -41,7 +41,8 @@ app.get("/", (req, res) => {
 
 app.all('*', (req, res, next) => {
     return next(new AppError(`Can't find ${req.originalUrl}`, 400))
-})
+}
+)
 
 app.use(errorHandler)
 
